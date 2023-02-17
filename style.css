@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +9,7 @@
 }
 
 body {
-  background: linear-gradient(-45deg, #f4cd9a, #e2942d, #f4cd9a, #8c5e28);
+  background: linear-gradient(-45deg, #f4b400, #dd2a7b, #4284f4, #f4b400);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: 100vh;
@@ -17,8 +18,9 @@ body {
 
   display: grid;
   place-items: center;
-}
 
+  height: 100vh;
+}
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -32,27 +34,97 @@ body {
 }
 
 body,
-button {
+button,
+input {
   font-family: 'DM Sans', sans-serif;
 }
 
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+button {
+  background-color: #4284f4;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1.6rem;
+
+  border-radius: 0px 4px 4px 0px;
+  cursor: pointer;
+
+  transition: background 0.5s;
+}
+
+button:hover {
+  background-color: #dd2a7b;
+}
+
+.hide {
+  display: none;
+}
 main {
-  background: #fff;
-  box-shadow: 0px 20px 50px #8c5d289d;
-
-  border-radius: 5px;
-
-  width: min(43rem, 90%);
-
+  background: #ffffff;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.6rem;
   padding: 4.8rem 6.4rem;
+
+  width: min(42.8rem, 90%);
+
+  margin-top: -12rem;
 
   text-align: center;
 }
-/*Screen1*/
+
+/* screen1 */
+
+.screen1 img {
+  width: 8rem;
+  margin-bottom: 2rem;
+
+  animation: levitation 1s infinite alternate
+    cubic-bezier(0.7, 0.25, 0.34, 0.78);
+}
+
+@keyframes levitation {
+  from {
+    transform: translateY(0.7rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.screen2 img {
+  width: 8rem;
+  margin-bottom: 2rem;
+
+  animation: hithere 1s ease;
+}
+
+@keyframes hithere {
+  30% {
+    transform: scale(0.5);
+  }
+  40%,
+  60% {
+    transform: rotate(-20deg) scale(1.2);
+  }
+  50% {
+    transform: rotate(20deg) scale(1.2);
+  }
+  70% {
+    transform: rotate(0deg) scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
 h1 {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
+  font-size: 2.4rem;
+  margin-bottom: 1.6rem;
 }
 
 h1,
@@ -62,110 +134,81 @@ p {
 
 p {
   opacity: 0.8;
-  line-height: 20px;
-
-  margin-top: 1.4rem;
-  margin-bottom: 2rem;
 }
 
-img {
-  width: 30rem;
+.pTry {
+  color: red;
 
-  cursor: pointer;
-}
-.screen1 img:hover {
-  animation: shake 1s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
-}
+  font-weight: 600;
 
-@keyframes shake {
-  10%,
-  90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-
-  20%,
-  80% {
-    transform: translate3d(2px, 0, 0);
-  }
-
-  30%,
-  50%,
-  70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%,
-  60% {
-    transform: translate3d(4px, 0, 0);
-  }
+  margin-top: 2rem;
+  margin-bottom: -3rem;
+  animation: try 1s;
 }
 
-/*Screen2 */
-
-.hide {
+.hid {
   display: none;
 }
 
-.hug {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-  width: 30rem;
-  padding: 10px;
-  margin: 1.7rem 0 6rem;
-  gap: 1rem;
-
-  border: 0.2rem solid #bf7118a3;
-  border-radius: 1rem;
-
-  background: #ed9726;
-
-  animation: zoom 1.5s;
-}
-
-@keyframes zoom {
-  0% {
-    opacity: 0;
-    scale: 0.1;
+@keyframes try {
+  30% {
+    transform: scale(0.8);
+  }
+  40%,
+  60% {
+    transform: rotate(-10deg) scale(1.1);
+  }
+  50% {
+    transform: rotate(10deg) scale(1.1);
+  }
+  70% {
+    transform: rotate(0deg) scale(1.1);
   }
   100% {
-    opacity: 100;
-    scale: 1;
+    transform: scale(1);
   }
 }
 
-.screen2 p {
-  font-family: 'Dancing Script', sans-serif;
-  font-size: 2.4rem;
-  font-weight: 400;
-  line-height: 29px;
+form {
+  margin-top: 4.8rem;
 
-  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
 }
 
-.screen2 img {
-  margin-bottom: 6rem;
-}
-
+input,
 button {
-  font-weight: 700;
-  color: #fff;
-  line-height: 2rem;
-
-  background: #ed9726;
-  border-radius: 4px;
   border: none;
-
   padding: 1.6rem;
-  gap: 10px;
+}
 
-  cursor: pointer;
+input {
+  background: #dce2e9;
+  color: #252525;
 
+  border-radius: 4px 0px 0px 4px;
+
+  width: 6rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+
+  outline: none;
+}
+input:focus {
+  background-color: #d4deeb;
   transition: 0.3s;
 }
-button:hover {
-  background: #d0811a;
-  transform: scale(1.1);
+
+/* scren2 */
+
+h2 {
+  font-size: 2.4rem;
+  font-weight: normal;
+
+  margin-bottom: 3.3rem;
+}
+
+.screen2 button {
+  margin-top: 4.8rem;
+  border-radius: 0.4rem;
 }
